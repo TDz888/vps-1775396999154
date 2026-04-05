@@ -1,0 +1,19 @@
+name: VPS Auto Deploy
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Chạy VPS
+        run: |
+          echo "VPS đang chạy..."
+          while true; do
+            echo "Keep alive - $(date)"
+            sleep 60
+          done
